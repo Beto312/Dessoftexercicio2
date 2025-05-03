@@ -27,4 +27,7 @@ def calcula_pontos_regra_simples (dados):
     return dicio_faces
 
 def calcula_pontos_soma (dados):
-    return sum(dados)
+    soma = 0
+    for dado in dados:
+        soma += dado
+    return soma 
