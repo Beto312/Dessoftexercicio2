@@ -17,3 +17,14 @@ def remover_dado (dados_rolados, dados_no_estoque, dado_para_remover):
     dados_rolados.append(dados_no_estoque[dado_para_remover]) # adiciona o valor do estoque em dados rolados
     del dados_no_estoque[dado_para_remover] # remove o dado do estoque
     return [dados_rolados, dados_no_estoque]
+
+def calcula_pontos_regra_simples (dados):
+    dicio_faces = {}
+    for face in range(1, 7): # dá início ao dicionário
+        dicio_faces[face] = 0 
+    for dado in dados: # soma os dados respectivos
+        dicio_faces[dado] += dado
+    return dicio_faces
+
+def calcula_pontos_soma (dados):
+    return sum(dados)
