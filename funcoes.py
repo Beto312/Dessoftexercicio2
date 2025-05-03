@@ -31,3 +31,26 @@ def calcula_pontos_soma (dados):
     for dado in dados:
         soma += dado
     return soma 
+
+def calcula_pontos_sequencia_baixa (dados):
+    sem_repetidos = []
+    for dado in dados:
+        if dado not in sem_repetidos:
+            sem_repetidos.append(dados)
+
+    for i in range(len(sem_repetidos)):
+        for j in range(i + 1, len(sem_repetidos)):
+            if sem_repetidos[i] > sem_repetidos[j]:
+                sem_repetidos[i],sem_repetidos[j] = sem_repetidos[j], sem_repetidos[i]
+
+    sequencias_validas = [
+        [1, 2, 3, 4],
+        [2, 3, 4, 5],
+        [3, 4, 5, 6]
+    ]
+
+    for i in range(len(sem_repetidos) - 3):
+        blocos = sem_repetidos[i:i + 4]
+        if blocos in sequencias_validas:
+            return 15
+    return 0
