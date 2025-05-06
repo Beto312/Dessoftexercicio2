@@ -74,3 +74,30 @@ def calcula_pontos_sequencia_alta(dados):
         return 30
 
     return 0
+
+
+def calcula_pontos_full_house(dados):
+    contagem = {}
+    for valor in dados:
+        if valor in contagem:
+            contagem[valor] += 1
+        else:
+            contagem[valor] = 1
+
+    if len(contagem) != 2:
+        return 0
+
+    quantidades = []
+    for quantidade in contagem.values():
+        quantidades.append(quantidade)
+
+    if (quantidades[0] == 3 and quantidades[1] == 2) or \
+       (quantidades[0] == 2 and quantidades[1] == 3):
+        soma = 0
+        for valor in dados:
+            soma += valor
+        return soma
+
+    return 0
+
+
