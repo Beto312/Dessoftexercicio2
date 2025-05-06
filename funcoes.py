@@ -117,3 +117,29 @@ def calcula_pontos_quadra(dados):
             return soma
 
     return 0
+
+
+def calcula_pontos_quina(dados):
+    contagem = {}
+    for valor in dados:
+        if valor in contagem:
+            contagem[valor] += 1
+        else:
+            contagem[valor] = 1
+
+    for quantidade in contagem.values():
+        if quantidade >= 5:
+            return 50
+
+    return 0
+
+
+def calcula_pontos_regra_avancada(dados):
+    return {
+        'cinco_iguais': calcula_pontos_quina(dados),
+        'full_house': calcula_pontos_full_house(dados),
+        'quadra': calcula_pontos_quadra(dados),
+        'sem_combinacao': calcula_pontos_soma(dados),
+        'sequencia_alta': calcula_pontos_sequencia_alta(dados),
+        'sequencia_baixa': calcula_pontos_sequencia_baixa(dados)
+    }
